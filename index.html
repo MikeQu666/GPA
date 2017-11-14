@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Number array</title>
+		<!--<link rel="stylesheet" href="">-->
+		<script src="gpa1.js"></script>
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta name="robots" content="no-index, no-follow">
+	</head>
+	
+	<body>
+		<h2>gpa查询</h2>
+		<form>
+					<p class="bold">
+					
+						你在最后一次考试前的百分比？<br>
+						
+						<input type="text" id="fenshu" value="" size="1" maxlength="2" placeholder="">%<br>
+						
+						这次考试占比？<br>
+						
+						<input type="text" id="zhanbi" value="20" size="1" maxlength="2" placeholder="">%<br>
+						
+						你希望得到多少GPA?<br>
+						
+						<select id="GPA">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						</select>
+						<br><br>
+						
+					
+					<input type="button" value="查询" onclick="gpachaxun()">
+					<input type="Reset" value="clear">
+					
+					</p>
+					
+					
+					<!-- <p class="feedback"></p> -->
+		</form>
+		
+					<h2 id="feedback"></h2>
+	</body>
+
+</html>
+<script>
+
+function gpachaxun()
+{
+	var whatfenshu = document.getElementById("fenshu").value;
+	var whatzhanbi = document.getElementById("zhanbi").value;
+	var whatGPA = document.getElementById("GPA").value;
+	
+	console.log(whatfenshu)
+	console.log(whatzhanbi)
+	console.log(whatGPA)
+
+	if (whatGPA == 1)
+	{
+		document.getElementById("feedback").innerHTML ="施主一心求死，小僧也没有办法<br>你GPA光要1，学个毛线";
+	}
+	else if(whatGPA == 2)
+	{
+		var yaoqiufenshu=(25*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+	else if(whatGPA == 3)
+	{
+		var yaoqiufenshu=(47*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+	else if(whatGPA == 4)
+	{
+		var yaoqiufenshu=(50*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+	else if(whatGPA == 5)
+	{
+		var yaoqiufenshu=(65*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+	else if(whatGPA == 6)
+	{
+		var yaoqiufenshu=(75*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+	else if(whatGPA == 7)
+	{
+		var yaoqiufenshu=(85*100-whatfenshu*(100-whatzhanbi))/whatzhanbi
+		console.log(yaoqiufenshu)
+	}
+
+	console.log(yaoqiufenshu)
+	if(yaoqiufenshu<=0)
+	{
+		document.getElementById("feedback").innerHTML = "不用去考了，分数够了<br>提高点预期GPA如何？"
+	}
+	else if (yaoqiufenshu>100)
+	{
+		document.getElementById("feedback").innerHTML = "别想了，考满分都到不了<br>降低点预期GPA如何？"
+	}
+	else if (yaoqiufenshu>=0 && yaoqiufenshu<100)
+	{
+		document.getElementById("feedback").innerHTML = "考"+yaoqiufenshu+"%就够了"
+	}
+}
+</script>
